@@ -8,7 +8,7 @@ const filePath = process.argv[2];
 
 // Check if the file path is provided
 if (!filePath) {
-  console.error('Please provide a file path as a command-line argument.');
+  console.log('Please provide a file path as a command-line argument.');
   process.exit(1);
 }
 
