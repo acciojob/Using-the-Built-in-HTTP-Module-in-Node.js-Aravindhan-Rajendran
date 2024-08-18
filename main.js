@@ -12,16 +12,23 @@ if (!filePath) {
 }
 
 const server = http.createServer((req, res) => {
-  fs.readFile(filePath, 'utf8', (err, data) => {
-    if (err) {
-      res.writeHead(500, { 'Content-Type': 'text/plain' });
-      res.end(`Error reading the file: ${err.message}`);
-      console.error('Error reading the file:', err);
-      return;
-    }
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end(data);
-  });
+  if (req.url === '/') {
+    // Only read the file if the request is to the root path
+    fs.readFile(filePath, 'utf8', (err, data) => {
+      if (err) {
+        res.writeHead(500, { 'Content-Type': 'text/plain' });
+        res.end(`Error reading the file: ${err.message}`);
+        console.error('Error reading the file:', err);
+        return;
+      }
+      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      res.end(data);
+    });
+  } else {
+    // Handle any other routes
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('Invalid route. Please access the root path `/`.');
+  }
 });
 
 const PORT = 3000;
