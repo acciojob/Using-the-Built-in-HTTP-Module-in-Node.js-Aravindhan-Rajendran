@@ -2,8 +2,8 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-// Hardcode a file path for testing
-const filePath = './path-to-your-file';
+// Hardcode a file path for testing (ensure this file exists)
+const filePath = path.join(__dirname, './output.txt'); // Update this path as needed
 
 // Resolve the file path to ensure it is correct
 const resolvedFilePath = path.resolve(filePath);
