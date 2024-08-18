@@ -2,13 +2,13 @@ const axios = require('axios');
 const { exec } = require('child_process');
 const path = require('path');
 const port = 3000;
-const mainPath = path.join(__dirname,'..', 'main.js'); // Adjust the path as necessary
+const mainPath = path.join(__dirname, '..', 'main.js'); // Adjust the path as necessary
 let serverProcess;
 
 beforeAll((done) => {
   serverProcess = exec(`node ${mainPath} ./output.txt`, (error) => {
     if (error) {
-      console.error(`Could not start server: ${error}`);
+      console.error(`Could not start server: ${error.message}`);
       return done(error);
     }
     setTimeout(done, 1000); // Wait 1 second for the server to start

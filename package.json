@@ -18,11 +18,11 @@
   },
   "homepage": "https://github.com/acciojob/Using-the-Built-in-HTTP-Module-in-Node.js#readme",
   "devDependencies": {
-    "jest": "^29.5.0"
+    "jest": "^29.7.0"
   },
   "dependencies": {
     "assert": "^2.1.0",
-    "axios": "^1.4.0",
+    "axios": "^1.7.4",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "chai": "^4.3.10",
