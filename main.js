@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Hardcode a file path for testing (ensure this file exists)
-const filePath = path.join(__dirname, './output.txt'); // Update this path as needed
+const filePath = path.join(__dirname, 'output.txt'); // Ensure this file exists
 
 // Resolve the file path to ensure it is correct
 const resolvedFilePath = path.resolve(filePath);
@@ -34,3 +34,6 @@ server.listen(PORT, (err) => {
   }
   console.log(`Server running at http://localhost:${PORT}/`);
 });
+
+// Additional logging to indicate server readiness
+console.log('Server has started and is ready to accept requests.');
