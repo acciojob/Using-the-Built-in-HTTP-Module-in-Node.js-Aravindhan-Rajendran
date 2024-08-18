@@ -8,7 +8,7 @@ const filePath = process.argv[2];
 // Check if the file path is provided
 if (!filePath) {
   console.error('Please provide a file path as a command-line argument.');
-  process.exit(1);
+  process.exit(1); // Exit if no file path is provided
 }
 
 const server = http.createServer((req, res) => {
@@ -32,6 +32,19 @@ const server = http.createServer((req, res) => {
 });
 
 const PORT = 3000;
-server.listen(PORT, () => {
+server.listen(PORT, (err) => {
+  if (err) {
+    console.error(`Could not start server: ${err.message}`);
+    process.exit(1); // Exit if the server fails to start
+  }
   console.log(`Server running at http://localhost:${PORT}/`);
+});
+
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error(`Port ${PORT} is already in use. Please choose a different port.`);
+  } else {
+    console.error(`Server error: ${err.message}`);
+  }
+  process.exit(1); // Exit if there is a server error
 });
