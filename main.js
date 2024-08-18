@@ -15,7 +15,7 @@ const server = http.createServer((req, res) => {
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
       res.writeHead(500, { 'Content-Type': 'text/plain' });
-      res.end('Error reading the file.');
+      res.end(`Error reading the file: ${err.message}`);
       console.error('Error reading the file:', err);
       return;
     }
