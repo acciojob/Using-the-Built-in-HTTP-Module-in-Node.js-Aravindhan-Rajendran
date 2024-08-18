@@ -6,7 +6,7 @@ const mainPath = path.join(__dirname,'..', 'main.js'); // Adjust the path as nec
 let serverProcess;
 
 beforeAll((done) => {
-  serverProcess = exec(`node ${mainPath} ./path-to-your-file`, (error) => {
+  serverProcess = exec(`node ${mainPath} ./output.txt`, (error) => {
     if (error) {
       console.error(`Could not start server: ${error}`);
       return done(error);
