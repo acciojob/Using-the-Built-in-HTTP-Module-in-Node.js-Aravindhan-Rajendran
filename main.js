@@ -2,14 +2,8 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-// Get the file path from the command-line arguments
-const filePath = process.argv[2];
-
-// Check if the file path is provided
-if (!filePath) {
-  console.error('Error: Please provide a file path as a command-line argument.');
-  process.exit(1);
-}
+// Hardcode a file path for testing
+const filePath = './path-to-your-file';
 
 // Resolve the file path to ensure it is correct
 const resolvedFilePath = path.resolve(filePath);
